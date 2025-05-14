@@ -25,7 +25,7 @@ function App() {
     <Router>
       <Navbar />
       <div>
-        <h1>🕊️ Elección del nuevo</h1>
+        <h1>🕊️ Elección del nuevo Papa</h1>
 
         <Routes>
           <Route path="/" element={<Inicio />} />

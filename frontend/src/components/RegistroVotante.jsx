@@ -1,4 +1,3 @@
-// RegistroVotante.jsx
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -10,9 +9,9 @@ const RegistroVotante = () => {
 
   const validarDocumento = (tipo, valor) => {
     if (tipo === 'dni') {
-      return /^\d{8}$/.test(valor); // Ej: Perú
+      return /^\d{8}$/.test(valor); 
     } else if (tipo === 'pasaporte') {
-      return /^[A-Z0-9]{6,9}$/i.test(valor); // Formato general
+      return /^[A-Z0-9]{6,9}$/i.test(valor);
     }
     return false;
   };
@@ -29,7 +28,7 @@ const RegistroVotante = () => {
       const res = await axios.post('http://localhost:9000/api/votantes', {
         nombre,
         documentoIdentidad,
-        tipoDocumento,  // Incluir tipo de documento aquí
+        tipoDocumento,
       });
       setMensaje('✅ Votante registrado correctamente');
       setNombre('');

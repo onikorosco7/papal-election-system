@@ -111,7 +111,6 @@
 }
 
 .inicio-lista li:before {
-  content: '✔';
   position: absolute;
   left: 0;
   color: #6a0dad;
