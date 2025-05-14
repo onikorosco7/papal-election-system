@@ -1,0 +1,163 @@
+/* Contenedor principal */
+.inicio-container {
+  background: linear-gradient(145deg, #f3f4f9, #ffffff);
+  padding: 40px 30px;
+  border-radius: 20px;
+  max-width: 1000px;
+  margin: 80px auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  border: 1px solid #e4e4e4;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.inicio-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Fondo animado sutil */
+.inicio-container::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #6a0dad33, #ff6ec733, transparent);
+  opacity: 0.2;
+  animation: backgroundFloat 10s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes backgroundFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(10px, 20px) rotate(360deg);
+  }
+}
+
+/* Título */
+.inicio-titulo {
+  font-size: 2.7rem;
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #6a0dad, #ff6ec7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.inicio-titulo span {
+  color: #ff6ec7;
+}
+
+/* Párrafo */
+.inicio-parrafo {
+  font-size: 1.3rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 35px;
+  line-height: 1.9;
+  z-index: 1;
+  position: relative;
+}
+
+/* Secciones */
+.inicio-seccion {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+.inicio-seccion h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.inicio-seccion p {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* Lista */
+.inicio-lista {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.15rem;
+  color: #444;
+}
+
+.inicio-lista li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 1.8em;
+  text-indent: -1.5em;
+}
+
+.inicio-lista li:before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #6a0dad;
+  font-size: 1.2em;
+  top: 0;
+}
+
+/* Botón CTA */
+.inicio-cta {
+  text-align: center;
+  margin-top: 40px;
+  z-index: 1;
+  position: relative;
+}
+
+.inicio-boton {
+  display: inline-block;
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, #6a0dad, #ff6ec7);
+  border: none;
+  border-radius: 40px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(255, 110, 199, 0.3);
+}
+
+.inicio-boton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(255, 110, 199, 0.5);
+}
+
+.inicio-boton:active {
+  transform: scale(1);
+}
+
+/* Partículas flotantes */
+body::after {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
