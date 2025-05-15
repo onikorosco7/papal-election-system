@@ -19,13 +19,6 @@ A modern full-stack web application for simulating a papal election, where users
 - Database: MongoDB with Mongoose
 - HTTP Requests: Axios
 
-## 📂 Folder Structure
-
-```
-/client          → React frontend (components, pages, styles)
-/server          → Express backend (routes, models, controllers)
-/public          → Static assets
-```
 
 ## ⚙️ Installation
 
@@ -41,8 +34,8 @@ cd papal-election-system
 
 3. **Install dependencies**
 ```bash
-cd server && npm install
-cd ../client && npm install
+cd backend && npm install
+cd frontend && npm install
 ```
 
 4. **Create `.env` file in `/server`**
@@ -54,10 +47,10 @@ PORT=9000
 5. **Run the app**
 ```bash
 # In one terminal for the backend
-cd server && npm run dev
+cd backend && npm start
 
 # In another terminal for the frontend
-cd client && npm start
+cd client && npm run dev
 ```
 
 ## 📸 Screenshots
