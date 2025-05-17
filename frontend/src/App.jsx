@@ -6,6 +6,7 @@ import RegistroVoto from './components/RegistroVoto';
 import MostrarCandidatos from './components/MostrarCandidatos';
 import MostrarGanadores from './components/MostrarGanadores';
 import Inicio from './pages/Inicio';
+import AdminRoutes from './admin/AdminRoutes'; // ⬅️ Importación del admin
 
 import './index.css';
 
@@ -44,7 +45,11 @@ function App() {
               </>
             }
           />
+
           <Route path="/ganadores" element={<MostrarGanadores />} />
+
+          {/* Rutas del panel de administrador */}
+          <Route path="/*" element={<AdminRoutes />} />
         </Routes>
       </div>
     </Router>

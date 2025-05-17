@@ -8,6 +8,7 @@ const candidatoRoutes = require('./routes/candidatos');
 const votanteRoutes = require('./routes/votantes');
 const votoRoutes = require('./routes/votos');
 const ganadorRoutes = require('./routes/ganadores');
+const adminRoutes = require('./routes/admin');
 
 // Inicialización
 dotenv.config();
@@ -23,6 +24,7 @@ app.use('/api/candidatos', candidatoRoutes);
 app.use('/api/votantes', votanteRoutes);
 app.use('/api/votos', votoRoutes);
 app.use('/api/ganadores', ganadorRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Conexión a MongoDB y servidor
 mongoose.connect(process.env.MONGODB_URI)
