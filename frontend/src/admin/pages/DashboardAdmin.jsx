@@ -12,7 +12,6 @@ function DashboardAdmin() {
           <li><Link to="/admin/votantes">Ver lista de votantes</Link></li>
           <li><Link to="/admin/candidatos/crear">Registrar nuevo candidato</Link></li>
           <li><Link to="/admin/candidatos">Ver lista de candidatos</Link></li>
-          <li><Link to="/admin/candidatos">Ver lista de candidatos</Link></li>
           {/* Agrega más opciones si lo necesitas */}
         </ul>
       </div>
