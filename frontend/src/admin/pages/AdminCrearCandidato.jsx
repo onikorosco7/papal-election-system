@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import './admin.css';
 
 function AdminCrearCandidato() {
@@ -8,12 +9,20 @@ function AdminCrearCandidato() {
   const [nacionalidad, setNacionalidad] = useState('');
   const navigate = useNavigate();
 
+  // Solo acepta letras y espacios
+  const soloLetras = (valor) => /^[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]*$/.test(valor);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem('adminToken');
     if (!token) {
-      alert('Debes iniciar sesión primero');
+      Swal.fire('Error', 'Debes iniciar sesión primero', 'error');
+      return;
+    }
+
+    if (!nombre || !funcionEclesiastica || !nacionalidad) {
+      Swal.fire('Error', 'Todos los campos son obligatorios', 'warning');
       return;
     }
 
@@ -29,36 +38,49 @@ function AdminCrearCandidato() {
     const data = await res.json();
 
     if (res.ok) {
-      alert('✅ Candidato creado con éxito');
+      await Swal.fire('✅ Candidato creado', 'El candidato fue creado con éxito', 'success');
       navigate('/admin/candidatos');
     } else {
-      alert(data.error || '❌ Error al crear candidato');
+      Swal.fire('❌ Error', data.error || 'Error al crear candidato', 'error');
     }
   };
 
   return (
     <div className="admin-container">
+      <button
+        className="btn-regresar"
+        onClick={() => navigate('/admin/candidatos')}
+        style={{ marginBottom: '1rem' }}
+      >
+        ← Regresar
+      </button>
       <h2>Crear Nuevo Candidato</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Nombre"
           value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
+          onChange={(e) => {
+            if (soloLetras(e.target.value)) setNombre(e.target.value);
+          }}
           required
         />
         <input
           type="text"
           placeholder="Función Eclesiástica"
           value={funcionEclesiastica}
-          onChange={(e) => setFuncionEclesiastica(e.target.value)}
+          onChange={(e) => {
+            if (soloLetras(e.target.value)) setFuncionEclesiastica(e.target.value);
+          }}
           required
         />
         <input
           type="text"
           placeholder="Nacionalidad"
           value={nacionalidad}
-          onChange={(e) => setNacionalidad(e.target.value)}
+          onChange={(e) => {
+            if (soloLetras(e.target.value)) setNacionalidad(e.target.value);
+          }}
           required
         />
         <button type="submit">Crear Candidato</button>

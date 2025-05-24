@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AdminNavbar from '../components/AdminNavbar'; // Asegúrate de que el archivo esté en la ruta correcta
+import AdminNavbar from '../components/AdminNavbar';
 import './admin.css';
 
 function DashboardAdmin() {

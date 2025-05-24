@@ -13,6 +13,10 @@ function VotantesAdmin() {
 
   return (
     <div className="admin-container">
+      <button onClick={() => window.history.back()} style={{ marginBottom: '1rem' }}>
+        ← Regresar
+      </button>
+
       <h2>Lista de Votantes</h2>
       <ul>
         {votantes.map(v => (
